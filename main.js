@@ -1,3 +1,17 @@
+function initMap() {
+    // The location of Uluru
+    const uluru = { lat: -25.344, lng: 131.036 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: uluru,
+    });
+    // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+        position: uluru,
+        map: map,
+    });
+}
 //This div will display Google map
 const mapArea = document.getElementById('map');
 
@@ -7,8 +21,8 @@ const actionBtn = document.getElementById('showMe');
 //This will display all the available addresses returned by Google's Geocode Api
 const locationsAvailable = document.getElementById('locationList');
 
-//Let's bring in our API_KEY
-const __KEY = 'AIzaSyB3YI9pY2nz7WFQZatZZ-hhlFLe_rfFczI';
+// API_KEY
+const __KEY = 'AIzaSyDJGpQUoSLWViuWhKtaYDrCYkUKVUyV1Vs';
 
 //Let's declare our Gmap and Gmarker variables that will hold the Map and Marker Objects later on
 let Gmap;
@@ -19,7 +33,10 @@ actionBtn.addEventListener('click', e => {
     // hide the button 
     actionBtn.style.display = "none";
     // call Materialize toast to update user 
-    M.toast({ html: 'fetching your current location', classes: 'rounded' });
+    M.toast({
+        html: 'fetching your current location',
+        classes: 'rounded'
+    });
     // get the user's position
     getLocation();
 });
@@ -30,7 +47,10 @@ getLocation = () => {
         navigator.geolocation.getCurrentPosition(displayLocation, showError, options)
 
     } else {
-        M.toast({ html: 'Sorry, your browser does not support this feature... Please Update your Browser to enjoy it', classes: 'rounded' });
+        M.toast({
+            html: 'Sorry, your browser does not support this feature... Please Update your Browser to enjoy it',
+            classes: 'rounded'
+        });
     }
 }
 
@@ -39,7 +59,10 @@ getLocation = () => {
 displayLocation = (position) => {
     const lat = position.coords.latitude;
     const lng = position.coords.longitude;
-    const latlng = { lat, lng }
+    const latlng = {
+        lat,
+        lng
+    }
     showMap(latlng, lat, lng);
     createMarker(latlng);
     mapArea.style.display = "block";
