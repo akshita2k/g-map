@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address Locator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h3>Enter your Address</h3>
+    <p>You can click the button below to enter your current location as your address</p>
+    <div id="map">
+    </div>
+    <button id="showMe" class="btn center-align">
+    <i class="material-icons">
+        my_location
+    </i>">Use My Location</button>
+    <form id="shippingAddress">
+      <div id="locationList"></div>
+      <br>
+      <div class="input-field">
+        <textarea class="input_fields materialize-textarea" id="address" type="text"></textarea>
+        <label class="active" for="address">Address (Area and Street)</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="locality" type="text">
+        <label class="active" for="locality">Locality</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="city" type="text">
+        <label class="active" for="city">City/District/Town</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="postal_code" type="text">
+        <label class="active" for="pin_code">Pin Code</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="landmark" type="text">
+        <label class="active" for="landmark">Landmark</label>
+      </div>
+      <div class="input-field">
+        <input class="input_fields" id="state" type="text">
+        <label class="active" for="State">State</label>
+      </div>
+    </form>
+    <!-- You could add a fallback address gathering form here -->
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3YI9pY2nz7WFQZatZZ-hhlFLe_rfFczI"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
